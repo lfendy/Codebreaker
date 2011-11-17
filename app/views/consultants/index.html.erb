@@ -2,12 +2,20 @@
   <thead>
     <tr>
     <th>Name</th>
+    <th>Email</th>
+    <th>Role</th>
+    <th>Grade</th>
+    <th>Skill</th>
     </tr>
   </thead>
   <tbody>
     <% @consultants.each do |c| %>
       <tr>
         <td><%= c.name %></td>
+        <td><%= c.email %></td>
+        <td><%= c.role %></td>
+        <td><%= c.grade %></td>
+        <td><%= c.skill %></td>
       </tr>
     <% end %>
   </tbody>
