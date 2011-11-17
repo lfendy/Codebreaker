@@ -1,6 +1,7 @@
 Codebreaker::Application.routes.draw do
   resources :consultants
-
+  match 'import_csv/' => 'import_csv#index', :via => 'get'
+  match 'import_csv/' => 'import_csv#upload', :via => 'post'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

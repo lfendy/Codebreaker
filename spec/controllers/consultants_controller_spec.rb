@@ -12,4 +12,5 @@ describe ConsultantsController do
 
     end
   end
+
 end
