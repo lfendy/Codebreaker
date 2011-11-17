@@ -19,6 +19,11 @@ end
 gem 'jquery-rails'
 gem 'heroku'
 
+group :development, :test do
+  gem 'rspec-rails', '~>2.6'
+  gem 'webrat'
+end
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
