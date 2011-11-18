@@ -1,4 +1,5 @@
 Codebreaker::Application.routes.draw do
+  match 'consultants/generate' => 'consultants#generate', :via => 'get'
   resources :consultants
   match 'import_csv/' => 'import_csv#index', :via => 'get'
   match 'import_csv/' => 'import_csv#upload', :via => 'post'
