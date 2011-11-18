@@ -2,7 +2,10 @@ require 'csv_parser'
 
 class ImportCsvController < ApplicationController
   def upload
-    CSVParser.parse params[:dump][:file]
+    consultants = CSVParser.parse params[:dump][:file]
+    consultants.each do |c|
+      Consultant.create(c)
+    end
     redirect_to :action => :index
   end
 end
