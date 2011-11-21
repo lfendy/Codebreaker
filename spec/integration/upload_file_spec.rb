@@ -14,7 +14,7 @@ describe "upload_file" do
       c.should be
       c.role.should == "Dev"
       c.email.should == "doh@thoughtworks.com"
-      c.skill.should == "ruby"
+      c.skills.first.name.should == "ruby"
       c.grade.should == "Consultant"
     end
   end

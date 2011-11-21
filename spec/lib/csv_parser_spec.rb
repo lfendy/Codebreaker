@@ -9,7 +9,7 @@ describe CSVParser do
         :role => 'Dev',
         :grade => 'Consultant',
         :email => 'doh@thoughtworks.com',
-        :skill => 'ruby'
+        :skills_attributes => [{:name => 'ruby'}]
       }
       results.size.should == 1
     end
@@ -26,6 +26,27 @@ TAG
     end
 
   end
+
+  describe 'parse skill' do
+    it 'should parse pipe delimited string' do
+      pipe_delimited ="pipe1|pipe2|pipe3"
+      results = CSVParser.parse_skills pipe_delimited
+      results.size.should == 3
+    end
+
+    it 'should parse skill names' do
+      pipe_delimited ="pipe1"
+      results = CSVParser.parse_skills pipe_delimited
+      results.first.should == {
+        :name => 'pipe1'
+      }
+    end
+
+    it "should not complain on nil" do
+      lambda{CSVParser.parse_skills nil}.should_not raise_error
+    end
+  end
+
 
 end
 
