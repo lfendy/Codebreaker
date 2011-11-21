@@ -24,7 +24,19 @@ describe ConsultantsController do
       consultants.should_not be_nil
       consultants.size.should == 2
     end
+
+    xit 'should filter random consultants based on skills' do
+      (1..5).each do |i|
+        Consultant.create({
+          :name => "David" + i.to_s,
+          :skills_attributes => [{:name => (i<3) ? 'ruby' : 'java'}]
+        })
+      end
+      get 'generate'
+    end
+
   end
+
 
 
 end
